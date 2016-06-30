@@ -13,14 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zxing.support.library.qrcode.QRCodeEncode;
+import com.dou361.scan.activity.CaptureActivity;
+import com.dou361.scan.qrcode.QRCodeEncode;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final int ACTIVITY_RESULT_SCAN = 1;
 
-    private Button btn_scan1;
-    private Button btn_scan2;
+    private Button btn_scan;
     private Button mEnCodeButton;
     private EditText mInputText;
     private TextView mResultTextView;
@@ -30,15 +30,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn_scan1 = (Button) findViewById(R.id.btn_scan1);
-        btn_scan2 = (Button) findViewById(R.id.btn_scan2);
+        btn_scan = (Button) findViewById(R.id.btn_scan);
         mEnCodeButton = (Button) findViewById(R.id.encode);
         mInputText = (EditText) findViewById(R.id.input);
         mResultTextView = (TextView) findViewById(R.id.result);
         mQRCodeImage = (ImageView) findViewById(R.id.qrcode);
 
-        btn_scan1.setOnClickListener(this);
-        btn_scan2.setOnClickListener(this);
+        btn_scan.setOnClickListener(this);
         mEnCodeButton.setOnClickListener(this);
     }
 
@@ -57,11 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setOutputBitmapPadding(10);
                 mQRCodeImage.setImageBitmap(builder.build().encode(input));
             }
-        } else if (v.getId() == R.id.btn_scan1) {
-            Intent intent = new Intent(this, ScanActivityStyle1.class);
-            startActivityForResult(intent, ACTIVITY_RESULT_SCAN);
-        } else if (v.getId() == R.id.btn_scan2) {
-            Intent intent2 = new Intent(this, ScanActivityStyle2.class);
+        } else if (v.getId() == R.id.btn_scan) {
+            Intent intent2 = new Intent(this, CaptureActivity.class);
             startActivityForResult(intent2, ACTIVITY_RESULT_SCAN);
         }
 

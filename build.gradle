@@ -30,6 +30,8 @@ ext {
     versionCode = 1
     versionName = "1.0.0.01"
     //library版本
+    jjdxm_compileSdkVersion = 22
+    jjdxm_targetSdkVersion = 22
     jjdxm_minSdkVersion = 15
     jjdxm_versionCode = 1
     jjdxm_versionName = "1.0.0"

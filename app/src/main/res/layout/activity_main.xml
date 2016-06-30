@@ -8,22 +8,16 @@
               tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_scan1"
+        android:id="@+id/btn_scan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="扫描1"/>
-
-    <Button
-        android:id="@+id/btn_scan2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="扫描2"/>
+        android:text="扫描"/>
 
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="扫描结果"/>
 
     <EditText
         android:id="@+id/input"

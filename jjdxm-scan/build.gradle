@@ -29,12 +29,12 @@ ext {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.jjdxm_compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.jjdxm_minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        targetSdkVersion rootProject.ext.jjdxm_targetSdkVersion
         versionCode rootProject.ext.jjdxm_versionCode
         versionName rootProject.ext.jjdxm_versionName
     }
@@ -49,7 +49,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile rootProject.ext.jjdxm_v4
     compile 'com.google.zxing:android-core:3.2.1'
     compile 'com.google.zxing:core:3.2.1'
 }
