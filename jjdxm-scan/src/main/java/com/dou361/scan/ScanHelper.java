@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.SurfaceHolder;
@@ -27,22 +29,22 @@ import java.io.IOException;
 
 /**
  * ========================================
- * <p>
+ * <p/>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p>
+ * <p/>
  * 作 者：陈冠明
- * <p>
+ * <p/>
  * 个人网站：http://www.dou361.com
- * <p>
+ * <p/>
  * 版 本：1.0
- * <p>
+ * <p/>
  * 创建日期：2016/6/29 17:41
- * <p>
+ * <p/>
  * 描 述：扫码的主要入口
- * <p>
- * <p>
+ * <p/>
+ * <p/>
  * 修订历史：
- * <p>
+ * <p/>
  * ========================================
  */
 public class ScanHelper {
@@ -58,6 +60,24 @@ public class ScanHelper {
     private static final int REQUEST_CODE = 100;
     private Activity mActivity;
     private String photoPath;
+    private ProgressDialog progressDialog;
+    private boolean inner;
+    private Handler mHnadler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 20:
+                    if (progressDialog != null) {
+                        progressDialog.dismiss();
+                    }
+                    if (!inner) {
+                        Toast.makeText(mActivity, "识别不出来啊！", Toast.LENGTH_LONG).show();
+                    }
+                    break;
+            }
+        }
+    };
 
 
     public ScanHelper(Activity activity, SurfaceView surfaceView, QRCodeFindView findView) {
@@ -178,22 +198,24 @@ public class ScanHelper {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         if (resultCode == Activity.RESULT_OK) {
-            final ProgressDialog progressDialog;
+
             switch (requestCode) {
                 case REQUEST_CODE:
                     if (intent != null) {
                         photoPath = BitmapUtils.getAbsolutePathFromNoStandardUri(intent.getData());
                     }
-                    progressDialog = new ProgressDialog(mActivity);
-                    progressDialog.setMessage("正在扫描...");
-                    progressDialog.setCancelable(false);
+                    if (progressDialog == null) {
+                        progressDialog = new ProgressDialog(mActivity);
+                        progressDialog.setMessage("正在扫描...");
+                        progressDialog.setCancelable(false);
+                    }
                     progressDialog.show();
 
                     new Thread(new Runnable() {
 
                         @Override
                         public void run() {
-                            boolean inner = false;
+                            inner = false;
                             Bitmap img = null;
                             if (photoPath != null) {
                                 img = BitmapUtils
@@ -209,10 +231,7 @@ public class ScanHelper {
                                     inner = true;
                                 }
                             }
-                            progressDialog.dismiss();
-                            if(!inner){
-                                Toast.makeText(mActivity,"识别不出来啊！",Toast.LENGTH_LONG).show();
-                            }
+                            mHnadler.sendEmptyMessage(20);
 
                         }
                     }).start();

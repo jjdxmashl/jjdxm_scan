@@ -76,4 +76,12 @@ public class CaptureActivity extends Activity implements ScanHelper.OnScanResult
             mScanHelper.toggleFlashlight(flashlight);
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (mScanHelper != null) {
+            mScanHelper.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 }
