@@ -20,17 +20,21 @@
 scan or grab via Maven:
 
 	<dependency>
-	  <groupId>scan</groupId>
+	  <groupId>com.dou361.scan</groupId>
 	  <artifactId>jjdxm-scan</artifactId>
 	  <version>x.x.x</version>
 	</dependency>
 
 or Gradle:
 
-	compile 'scan:jjdxm-scan:x.x.x'
+	compile 'com.dou361.scan:jjdxm-scan:x.x.x'
+
+历史版本
+
+	compile 'com.dou361.scan:jjdxm-scan:1.0.0'
 
 
-jjdxm-scan requires at minimum Java 15 or Android 4.0.
+jjdxm-scan requires at minimum Java 9 or Android 2.3.
 
 ## Get Started ##
 

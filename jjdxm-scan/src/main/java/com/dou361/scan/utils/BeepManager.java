@@ -26,11 +26,13 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.dou361.scan.R;
 import com.dou361.scan.camera.CameraConfig;
 
 import java.io.IOException;
 
 /**
+ * 扫描声音
  * Manages beeps and vibrations for
  */
 public class BeepManager implements MediaPlayer.OnCompletionListener,
@@ -106,7 +108,7 @@ public class BeepManager implements MediaPlayer.OnCompletionListener,
         mediaPlayer.setOnCompletionListener(this);
         mediaPlayer.setOnErrorListener(this);
 
-        AssetFileDescriptor file = activity.getResources().openRawResourceFd(ResourceUtils.getResourceIdByName(activity, "raw", "jjdxm_scan_beep"));
+        AssetFileDescriptor file = activity.getResources().openRawResourceFd(R.raw.jjdxm_scan_beep);
         try {
             mediaPlayer.setDataSource(file.getFileDescriptor(),
                     file.getStartOffset(), file.getLength());

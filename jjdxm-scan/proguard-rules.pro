@@ -15,3 +15,6 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-dontwarn com.google.zxing.**
+-keep class com.google.zxing.** {*;}
+-keep class com.dou361.scan.** {*;}

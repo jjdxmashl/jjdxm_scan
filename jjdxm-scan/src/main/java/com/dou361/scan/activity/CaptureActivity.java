@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
+import com.dou361.scan.R;
 import com.dou361.scan.ScanHelper;
 import com.dou361.scan.utils.BeepManager;
-import com.dou361.scan.utils.ResourceUtils;
 import com.dou361.scan.view.FinderViewStyle;
 
 
@@ -31,12 +31,12 @@ public class CaptureActivity extends Activity implements ScanHelper.OnScanResult
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         mContext = this;
-        setContentView(ResourceUtils.getResourceIdByName(mContext, "layout", "jjdxm_scan_activity_capture"));
+        setContentView(R.layout.jjdxm_scan_activity_capture);
 
-        mFinderView = (FinderViewStyle) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "capture_viewfinder_view"));
-        mSurfaceView = (SurfaceView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "sufaceview"));
-        capture_flashlight = (ImageView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "capture_flashlight"));
-        capture_scan_photo = (ImageView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "capture_scan_photo"));
+        mFinderView = (FinderViewStyle) findViewById(R.id.capture_viewfinder_view);
+        mSurfaceView = (SurfaceView) findViewById(R.id.sufaceview);
+        capture_flashlight = (ImageView) findViewById(R.id.capture_flashlight);
+        capture_scan_photo = (ImageView) findViewById(R.id.capture_scan_photo);
         capture_flashlight.setOnClickListener(this);
         capture_scan_photo.setOnClickListener(this);
 
@@ -69,9 +69,9 @@ public class CaptureActivity extends Activity implements ScanHelper.OnScanResult
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == ResourceUtils.getResourceIdByName(mContext, "id", "capture_scan_photo")) {// 图片识别
+        if (v.getId() == R.id.capture_scan_photo) {// 图片识别
             mScanHelper.selectPhoto();
-        } else if (v.getId() == ResourceUtils.getResourceIdByName(mContext, "id", "capture_flashlight")) {
+        } else if (v.getId() == R.id.capture_flashlight) {
             flashlight = !flashlight;
             mScanHelper.toggleFlashlight(flashlight);
         }

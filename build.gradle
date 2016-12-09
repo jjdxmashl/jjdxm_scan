@@ -32,7 +32,7 @@ ext {
     //library版本
     jjdxm_compileSdkVersion = 22
     jjdxm_targetSdkVersion = 22
-    jjdxm_minSdkVersion = 15
+    jjdxm_minSdkVersion = 9
     jjdxm_versionCode = 1
     jjdxm_versionName = "1.0.0"
     jjdxm_v4 = 'com.android.support:support-v4:23.3.0'

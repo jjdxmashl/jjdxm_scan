@@ -12,9 +12,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.dou361.scan.utils.ResourceUtils;
-import com.google.zxing.ResultPoint;
+import com.dou361.scan.R;
 import com.dou361.scan.camera.CameraManager;
+import com.google.zxing.ResultPoint;
 
 
 /**
@@ -77,11 +77,11 @@ public final class FinderViewStyle extends View implements QRCodeFindView {
         /**
          * 缓存图片资源。
          */
-        mCornerTopLeft = BitmapFactory.decodeResource(resources, ResourceUtils.getResourceIdByName(mContext, "drawable", "jjdxm_scan_corner_top_left"));
-        mCornerTopRight = BitmapFactory.decodeResource(resources, ResourceUtils.getResourceIdByName(mContext, "drawable", "jjdxm_scan_corner_top_right"));
-        mCornerBottomLeft = BitmapFactory.decodeResource(resources, ResourceUtils.getResourceIdByName(mContext, "drawable", "jjdxm_scan_corner_bottom_left"));
-        mCornerBottomRight = BitmapFactory.decodeResource(resources, ResourceUtils.getResourceIdByName(mContext, "drawable", "jjdxm_scan_corner_bottom_right"));
-        mScanLexer = ((BitmapDrawable) getResources().getDrawable(ResourceUtils.getResourceIdByName(mContext, "drawable", "jjdxm_scan_laser"))).getBitmap();
+        mCornerTopLeft = BitmapFactory.decodeResource(resources, R.drawable.jjdxm_scan_corner_top_left);
+        mCornerTopRight = BitmapFactory.decodeResource(resources, R.drawable.jjdxm_scan_corner_top_right);
+        mCornerBottomLeft = BitmapFactory.decodeResource(resources, R.drawable.jjdxm_scan_corner_bottom_left);
+        mCornerBottomRight = BitmapFactory.decodeResource(resources, R.drawable.jjdxm_scan_corner_bottom_right);
+        mScanLexer = ((BitmapDrawable) getResources().getDrawable(R.drawable.jjdxm_scan_laser)).getBitmap();
     }
 
 

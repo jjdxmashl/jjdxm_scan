@@ -9,7 +9,7 @@ ext {
     jjdxm_groupId = 'com.dou361.scan'
     jjdxm_artifactId = 'jjdxm-scan'
 
-    jjdxm_libraryVersion = '1.0.0'
+    jjdxm_libraryVersion = '1.0.1'
     jjdxm_libraryName = 'jjdxm-scan'
     jjdxm_libraryDescription = 'this is a scan scan of the application'
 
@@ -33,6 +33,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
+        consumerProguardFiles 'proguard-rules.pro'
         minSdkVersion rootProject.ext.jjdxm_minSdkVersion
         targetSdkVersion rootProject.ext.jjdxm_targetSdkVersion
         versionCode rootProject.ext.jjdxm_versionCode
